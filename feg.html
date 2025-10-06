@@ -8,325 +8,97 @@
     :root {
       --blue: #0052cc;
       --dark: #2b2b2b;
-      --light-gray: #940b0b;
+      --light-gray: #f5f5f5;
       --text: #222;
       --muted: #666;
+      --white: #ffffff;
     }
+    *{box-sizing:border-box}
+    body{font-family: "Segoe UI", Tahoma, sans-serif; margin:0; background:var(--light-gray); color:var(--text);}
+    .container{max-width:1100px;margin:28px auto;padding:20px}
+    .hero{display:grid;grid-template-columns: 1fr 480px;gap:24px;align-items:center;min-height:320px}
+    .hero-left{padding:28px}
+    .hero-left h1{font-size:2.2rem;margin-bottom:12px}
+    .hero-left p{color:var(--muted);line-height:1.6}
+    .hero-right{display:flex;flex-direction:column;gap:18px}
+    .hero-box{background:var(--white);padding:22px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .hero-box.purpose{background:linear-gradient(180deg,#0b63d6,#0a4fb0);color:#fff}
+    .hero-box.vision{background:linear-gradient(180deg,#0b2b34,#07202a);color:#fff}
+    .hero-box h2{margin:0 0 8px;font-size:1.2rem}
+    .hero-box p{margin:0;color:rgba(255,255,255,0.92);line-height:1.45}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* Values section (accordion) */
+    .values{max-width:1100px;margin:28px auto;background:#fff;border-radius:10px;padding:26px}
+    .values h3{margin:0 0 18px}
+    .values-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .value-item{border-bottom:1px solid #eee;padding:12px 0}
+    .value-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .value-title{font-weight:600;color:var(--text)}
+    .toggle-btn{border:0;background:none;font-size:20px;cursor:pointer}
+    .value-content{display:none;margin-top:8px;margin-left:6px}
+    .value-item.active .value-content{display:block}
 
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: #8f0c0c;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    /* === Hero Section === */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 320px;
-    }
-
-    
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hero-block {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 32px;
-      color: #fff;
-    }
-
-    .hero-block.purpose {
-      background: var(--blue);
-    }
-
-    .hero-block.vision {
-      background: var(--dark);
-    }
-
-    .hero-block h2 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-block p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      max-width: 38ch;
-    }
-
-    /* === Core Values Section === */
-    .values {
-      background: var(--light-gray);
-      padding: 40px 20px;
-    }
-
-    .values-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .values h3 {
-      font-size: 1.8rem;
-      margin-bottom: 24px;
-    }
-
-    .values-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-    }
-
-    .value-item {
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    .value-item h4 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: var(--blue);
-    }
-
-    .value-item p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{order:2}
+      .hero-left{order:1}
+      .values-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-  
-    <div class="hero-text">
-      <div class="hero-block purpose">
-        <h2>Our purpose</h2>
-        <p>To revolutionize urban cooling by transforming rooftops into intelligent, energy-positive systems — making cities cooler, cleaner, and more sustainable.</p>
+  <div class="container">
+    <div class="hero" aria-label="Purpose and Vision">
+      <div class="hero-left">
+        <h1>SkyCool™ — Purpose & Vision</h1>
+        <p>We design intelligent rooftop solutions that reduce urban heat, improve building efficiency, and deliver resilient, sustainable cooling for cities. Below are our guiding purpose and vision statements.</p>
       </div>
-      <div class="hero-block vision">
-        <h2>Our vision</h2>
-        <p>To lead the global shift toward adaptive, AI-driven rooftop technologies that redefine energy use and climate resilience for future cities.</p>
+
+      <div class="hero-right">
+        <div class="hero-box purpose" role="region" aria-labelledby="purpose-title">
+          <h2 id="purpose-title">Our Purpose</h2>
+          <p>To revolutionize urban cooling by transforming rooftops into intelligent, energy-positive systems — making cities cooler, cleaner, and more sustainable.</p>
+        </div>
+
+        <div class="hero-box vision" role="region" aria-labelledby="vision-title">
+          <h2 id="vision-title">Our Vision</h2>
+          <p>To lead the global shift toward adaptive, AI-driven rooftop technologies that redefine energy use and climate resilience for future cities.</p>
+        </div>
       </div>
     </div>
-  </section>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Core Values Accordion</title>
-  <style>
-    :root {
-      --blue: #0052cc;
-      --light-gray: #f5f5f5;
-      --muted: #666;
-    }
+  </div>
 
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      margin: 0;
-      background: var(--light-gray);
-      color: #222;
-    }
-
-    .values {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 8px;
-      padding: 30px;
-    }
-
-    .values h3 {
-      font-size: 1.8rem;
-      margin-bottom: 24px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    /* Accordion item */
-    .value-item {
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
-    }
-
-    .value-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .value-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      color: #222;
-    }
-
-    .value-title::before {
-      content: "◆";
-      color: var(--blue);
-      font-size: 14px;
-    }
-
-    .toggle-btn {
-      border: none;
-      background: none;
-      font-size: 18px;
-      cursor: pointer;
-      transition: transform 0.2s;
-      color: #444;
-    }
-
-    .value-content {
-      margin-top: 8px;
-      margin-left: 20px;
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .value-content ul {
-      margin: 0;
-      padding-left: 16px;
-    }
-
-    .value-content li {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 4px 0;
-      list-style-type: disc;
-    }
-
-    /* Active state */
-    .value-item.active .value-content {
-      display: block;
-    }
-
-    .value-item.active .toggle-btn {
-      transform: rotate(180deg);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media(max-width: 768px){
-      .values-grid{
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="values">
+  <section class="values" aria-label="Core values">
     <h3>Our core values</h3>
     <div class="values-grid">
-      
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Integrity</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Be truthful in all actions and communications</li>
-            <li>Follow moral principles and company standards</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Integrity</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Be truthful in all actions and communications</li><li>Follow moral principles and company standards</li></ul></div>
       </div>
 
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Excellence</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Strive for outstanding results</li>
-            <li>Innovate with quality</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Excellence</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Strive for outstanding results</li><li>Innovate with quality</li></ul></div>
       </div>
 
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Care</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Value people and communities</li>
-            <li>Protect the environment</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Care</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Value people and communities</li><li>Protect the environment</li></ul></div>
       </div>
 
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Courage</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Take bold decisions</li>
-            <li>Stand by principles</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Courage</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Take bold decisions</li><li>Stand by principles</li></ul></div>
       </div>
 
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Resilience</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Adapt to change</li>
-            <li>Thrive in challenges</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Resilience</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Adapt to change</li><li>Thrive in challenges</li></ul></div>
       </div>
 
       <div class="value-item">
-        <div class="value-header">
-          <div class="value-title">Collaboration & Teamwork</div>
-          <button class="toggle-btn">＋</button>
-        </div>
-        <div class="value-content">
-          <ul>
-            <li>Listen actively and share clearly</li>
-            <li>Help teammates succeed</li>
-          </ul>
-        </div>
+        <div class="value-header"><div class="value-title">Collaboration & Teamwork</div><button class="toggle-btn">＋</button></div>
+        <div class="value-content"><ul><li>Listen actively and share clearly</li><li>Help teammates succeed</li></ul></div>
       </div>
     </div>
   </section>
@@ -336,7 +108,6 @@
       header.addEventListener('click', () => {
         const item = header.parentElement;
         const btn = header.querySelector('.toggle-btn');
-        
         // Close other items
         document.querySelectorAll('.value-item').forEach(i => {
           if (i !== item) {
@@ -344,15 +115,11 @@
             i.querySelector('.toggle-btn').textContent = '＋';
           }
         });
-
-        // Toggle current
         item.classList.toggle('active');
         btn.textContent = item.classList.contains('active') ? '−' : '＋';
       });
     });
   </script>
-
 </body>
 </html>
-
 
